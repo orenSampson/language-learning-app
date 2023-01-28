@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 
+import classes from './QuestionManager.module.css';
 import { QuestionData } from '../../types/qeustionData';
 import { getQuestionData } from '../../api/questionData';
 import QuestionDisplayer from '../QuestionDisplayer/QuestionDisplayer';
@@ -24,18 +27,23 @@ const QuestionManager: React.FC = () => {
       setQuestionData(data);
     } catch (error) {
       console.log(error);
-      //TODO: add toastify message to the user that something went wrong
     }
   }
 
   return (
-    <div className="App">
-      <Stack spacing={2} direction="row">
-        <Button variant="contained" onClick={getQuestionDataHandler}>
-          Get A New Word
-        </Button>
-      </Stack>
-      <QuestionDisplayer questionDataProps={questionData} />
+    <div>
+      <Container maxWidth="md">
+        <Typography className={classes.center} variant="h3" gutterBottom>
+          German Learning Quiz App
+        </Typography>
+        <div className={classes.center}>
+          <Button variant="contained" onClick={getQuestionDataHandler}>
+            Get A New Word
+          </Button>
+        </div>
+        <Stack spacing={2} direction="row"></Stack>
+        <QuestionDisplayer questionDataProps={questionData} />
+      </Container>
     </div>
   );
 };
