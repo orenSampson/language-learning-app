@@ -32,7 +32,7 @@ const QuestionManager: React.FC = () => {
 
   return (
     <div>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography className={classes.center} variant="h3" gutterBottom>
           German Learning Quiz App
         </Typography>
@@ -41,7 +41,6 @@ const QuestionManager: React.FC = () => {
             Get A New Word
           </Button>
         </div>
-        <Stack spacing={2} direction="row"></Stack>
         <QuestionDisplayer questionDataProps={questionData} />
       </Container>
     </div>
